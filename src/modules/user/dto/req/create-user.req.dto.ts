@@ -13,7 +13,8 @@ import {
   Min,
   ValidateIf,
 } from 'class-validator';
-import { TransformerHelper } from '../../../common/helpers/transformer.helper';
+
+import { TransformerHelper } from '../../../../common/helpers/transformer.helper';
 
 export class CreateUserReqDto {
   @IsString({ message: 'Must be an letters' })
