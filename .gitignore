@@ -3,6 +3,9 @@
 /node_modules
 /build
 
+nest-2024-api-db
+nest-2024-api-s3-data
+
 # Logs
 logs
 *.log
