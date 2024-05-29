@@ -1,16 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Transform, Type } from 'class-transformer';
+import { Transform } from 'class-transformer';
 import {
   IsEmail,
-  IsInt,
-  IsNumber,
   IsOptional,
   IsString,
   Length,
   Matches,
-  Max,
   MaxLength,
-  Min,
   ValidateIf,
 } from 'class-validator';
 
@@ -53,6 +49,16 @@ export class CreateUserReqDto {
   })
   public readonly password: string;
 
+  @IsString()
+  @IsOptional()
+  @MaxLength(255)
+  @ApiProperty({
+    example: 'Doctor....',
+    description: 'Other info about the user',
+    required: false,
+  })
+  public readonly bio?: string;
+
   @IsOptional()
   @IsString()
   @ValidateIf((object) => object.age > 25)
@@ -62,18 +68,18 @@ export class CreateUserReqDto {
     description: 'The avatar of the user',
     required: false,
   })
-  public readonly avatar?: string;
+  public readonly photo?: string;
 
-  @IsInt()
-  @IsNumber()
-  @IsOptional()
-  @Min(18)
-  @Max(150)
-  @Type(() => Number)
-  @ApiProperty({
-    example: 39,
-    description: 'The age of the user',
-    required: false,
-  })
-  public readonly age?: number;
+  // @IsInt()
+  // @IsNumber()
+  // @IsOptional()
+  // @Min(18)
+  // @Max(150)
+  // @Type(() => Number)
+  // @ApiProperty({
+  //   example: 39,
+  //   description: 'The age of the user',
+  //   required: false,
+  // })
+  // public readonly age?: number;
 }

@@ -1,19 +1,34 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany } from 'typeorm';
 
-@Entity('users')
-export class UserEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+import { ArticleEntity } from './article.entity';
+import { TableNameEnum } from './enums/table-name.enum';
+import { LikeEntity } from './like.entity';
+import { BaseModel } from './models/base-model';
+import { RefreshTokenEntity } from './refresh-token.entity';
 
-  @Column()
+@Entity({ name: TableNameEnum.USERS })
+export class UserEntity extends BaseModel {
+  @Column('text')
+  name: string;
+
+  @Column('text', { unique: true })
   email: string;
 
-  @Column()
+  @Column('text')
   password: string;
 
-  @Column()
-  firstName: string;
+  @Column('text', { nullable: true })
+  bio?: string;
 
-  @Column()
-  lastName: string;
+  @Column('text', { nullable: true })
+  image?: string;
+
+  @OneToMany(() => RefreshTokenEntity, (entity) => entity.user)
+  refreshTokens?: RefreshTokenEntity[];
+
+  @OneToMany(() => ArticleEntity, (entity) => entity.user)
+  articles?: ArticleEntity[];
+
+  @OneToMany(() => ArticleEntity, (entity) => entity.user)
+  likes?: LikeEntity[];
 }
