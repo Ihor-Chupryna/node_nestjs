@@ -1,16 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Transform, Type } from 'class-transformer';
+import { Transform } from 'class-transformer';
 import {
   IsEmail,
-  IsInt,
-  IsNumber,
   IsOptional,
   IsString,
   Length,
   Matches,
-  Max,
   MaxLength,
-  Min,
   ValidateIf,
 } from 'class-validator';
 

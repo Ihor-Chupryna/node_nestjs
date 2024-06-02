@@ -1,12 +1,12 @@
 import { Column, Entity, OneToMany } from 'typeorm';
 
 import { ArticleEntity } from './article.entity';
+import { CommentEntity } from './comment.entity';
 import { TableNameEnum } from './enums/table-name.enum';
+import { FollowEntity } from './follow.entity';
 import { LikeEntity } from './like.entity';
 import { BaseModel } from './models/base.model';
-import { FollowEntity } from './follow.entity';
 import { RefreshTokenEntity } from './refresh-token.entity';
-import { CommentEntity } from './comment.entity';
 
 @Entity({ name: TableNameEnum.USERS })
 export class UserEntity extends BaseModel {

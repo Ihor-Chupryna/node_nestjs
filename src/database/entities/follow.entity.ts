@@ -1,8 +1,8 @@
 import { Column, Entity, JoinTable, ManyToOne } from 'typeorm';
 
 import { TableNameEnum } from './enums/table-name.enum';
-import { UserEntity } from './user.entity';
 import { BaseModel } from './models/base.model';
+import { UserEntity } from './user.entity';
 
 @Entity({ name: TableNameEnum.FOLLOW })
 export class FollowEntity extends BaseModel {
