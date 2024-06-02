@@ -7,16 +7,17 @@ import {
   OneToMany,
 } from 'typeorm';
 
+import { CommentEntity } from './comment.entity';
 import { TableNameEnum } from './enums/table-name.enum';
 import { LikeEntity } from './like.entity';
-import { BaseModel } from './models/base-model';
+import { BaseModel } from './models/base.model';
 import { TagEntity } from './tag.entity';
 import { UserEntity } from './user.entity';
 
 @Entity({ name: TableNameEnum.ARTICLES })
 export class ArticleEntity extends BaseModel {
   @Column('text')
-  text: string;
+  title: string;
 
   @Column('text')
   description: string;
@@ -26,6 +27,9 @@ export class ArticleEntity extends BaseModel {
 
   @OneToMany(() => LikeEntity, (entity) => entity.article)
   likes?: LikeEntity[];
+
+  @OneToMany(() => CommentEntity, (entity) => entity.article)
+  comments?: LikeEntity[];
 
   @Column()
   user_id: string;

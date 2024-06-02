@@ -10,7 +10,7 @@ import { LoggerService } from '../../modules/logger/logger.service';
 
 @Catch()
 export class GlobalExceptionFilter implements ExceptionFilter {
-  constructor(private readonly loggerService: LoggerService) {}
+  constructor(private readonly logger: LoggerService) {}
 
   catch(exception: unknown, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
@@ -25,9 +25,10 @@ export class GlobalExceptionFilter implements ExceptionFilter {
       status = exception.getStatus();
     } else {
       status = 500;
-      messages = 'Internal Server Error';
+      messages = 'Internal server error';
     }
-    this.loggerService.error(exception);
+    this.logger.error(exception);
+
     messages = Array.isArray(messages) ? messages : [messages];
 
     response.status(status).json({

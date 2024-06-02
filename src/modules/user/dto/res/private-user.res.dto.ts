@@ -6,6 +6,6 @@ export class PrivateUserResDto extends PickType(BaseUserResDto, [
   'id',
   'name',
   'bio',
-  'photo',
+  'image',
   'email',
 ]) {}

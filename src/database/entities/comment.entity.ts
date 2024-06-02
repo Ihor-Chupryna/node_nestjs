@@ -5,17 +5,20 @@ import { TableNameEnum } from './enums/table-name.enum';
 import { BaseModel } from './models/base.model';
 import { UserEntity } from './user.entity';
 
-@Entity({ name: TableNameEnum.LIKES })
-export class LikeEntity extends BaseModel {
-  @Column()
-  user_id: string;
-  @ManyToOne(() => UserEntity, (entity) => entity.likes)
-  @JoinColumn({ name: 'user_id' })
-  user?: UserEntity;
+@Entity({ name: TableNameEnum.COMMENTS })
+export class CommentEntity extends BaseModel {
+  @Column('text')
+  body: string;
 
   @Column()
   article_id: string;
-  @ManyToOne(() => ArticleEntity, (entity) => entity.likes)
+  @ManyToOne(() => ArticleEntity, (user) => user.comments)
   @JoinColumn({ name: 'article_id' })
   article?: ArticleEntity;
+
+  @Column()
+  user_id: string;
+  @ManyToOne(() => UserEntity, (user) => user.comments)
+  @JoinColumn({ name: 'user_id' })
+  user?: UserEntity;
 }

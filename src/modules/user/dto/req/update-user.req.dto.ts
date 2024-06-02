@@ -13,7 +13,7 @@ export class UpdateUserReqDto {
     description: 'The email of the user',
     required: false,
   })
-  public readonly avatar?: string;
+  public readonly image?: string;
 
   @ApiProperty({
     example: 39,

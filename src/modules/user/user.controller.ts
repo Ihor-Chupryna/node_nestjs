@@ -52,7 +52,7 @@ export class UserController {
   public async update(
     @Param('id') id: string,
     @Body() updateUserDto: UpdateUserReqDto,
-  ): Promise<PublicUserResDto> {
+  ): Promise<any> {
     return await this.userService.update(id, updateUserDto);
   }
 
@@ -60,7 +60,7 @@ export class UserController {
   @ApiUnauthorizedResponse({ description: 'Unauthorized' })
   @ApiNotFoundResponse({ description: 'Not Found' })
   @Delete(':id')
-  public async remove(@Param('id') id: string): Promise<void> {
+  public async remove(@Param('id') id: string): Promise<any> {
     return await this.userService.remove(id);
   }
 }

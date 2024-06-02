@@ -29,5 +29,5 @@ export class BaseUserResDto {
     example: 'https://www.example.com/avatar.jpg',
     description: 'The avatar of the user',
   })
-  public readonly photo?: string;
+  public readonly image?: string;
 }

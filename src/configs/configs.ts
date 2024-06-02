@@ -1,6 +1,4 @@
-import * as process from 'node:process';
-
-import { Config } from './config.type';
+import { Config } from './configs.type';
 
 export default (): Config => ({
   app: {
@@ -8,8 +6,8 @@ export default (): Config => ({
     host: process.env.APP_HOST || '0.0.0.0',
   },
   database: {
-    host: process.env.POSTGRES_HOST,
     port: parseInt(process.env.POSTGRES_PORT) || 5432,
+    host: process.env.POSTGRES_HOST,
     user: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASSWORD,
     dbName: process.env.POSTGRES_DB,
@@ -19,7 +17,6 @@ export default (): Config => ({
     host: process.env.REDIS_HOST,
     password: process.env.REDIS_PASSWORD,
   },
-
   sentry: {
     dsn: process.env.SENTRY_DSN,
     env: process.env.SENTRY_ENVIRONMENT,
