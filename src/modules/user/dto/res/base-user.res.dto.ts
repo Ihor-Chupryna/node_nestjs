@@ -5,7 +5,7 @@ export class BaseUserResDto {
     example: '123',
     description: 'The id of the user',
   })
-  id: number;
+  id: string;
 
   @ApiProperty({
     example: 'Leanne Graham',
@@ -23,7 +23,7 @@ export class BaseUserResDto {
     example: 'Doctor....',
     description: 'Other info about the user',
   })
-  public readonly bio?: number;
+  public readonly bio?: string;
 
   @ApiProperty({
     example: 'https://www.example.com/avatar.jpg',

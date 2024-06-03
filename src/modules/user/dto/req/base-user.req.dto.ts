@@ -12,7 +12,7 @@ import {
 
 import { TransformHelper } from '../../../../common/helpers/transform.helper';
 
-export class CreateUserReqDto {
+export class BaseUserReqDto {
   @IsString({ message: 'Must be an letters' })
   @Length(3, 20)
   @Transform(TransformHelper.trim)
@@ -111,7 +111,7 @@ export class CreateUserReqDto {
 //   model: string;
 // }
 //
-// export class CreateUserReqDto {
+// export class BaseUserReqDto {
 //   @IsString()
 //   @Length(3, 30)
 //   @Transform(TransformHelper.trim)
