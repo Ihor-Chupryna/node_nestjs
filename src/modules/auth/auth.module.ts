@@ -9,6 +9,7 @@ import { JwtAccessGuard } from './guards/jwt-access.guard';
 import { AuthService } from './services/auth.service';
 import { AuthCacheService } from './services/auth-cache.service';
 import { TokenService } from './services/token.service';
+import { JwtRefreshGuard } from './guards/jwt-refresh.guard';
 
 @Module({
   imports: [JwtModule, UserModule, RedisModule],
@@ -18,6 +19,7 @@ import { TokenService } from './services/token.service';
     TokenService,
     AuthCacheService,
     { provide: APP_GUARD, useClass: JwtAccessGuard },
+    JwtRefreshGuard
   ],
   exports: [],
 })
