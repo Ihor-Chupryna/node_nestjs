@@ -16,19 +16,14 @@ export class AuthMapper {
     };
   }
 
-  public static toResponseTokensDTO(
-    tokenPair: ITokenPair,
-  ): TokenPairResDto {
+  public static toResponseTokensDTO(tokenPair: ITokenPair): TokenPairResDto {
     return {
       accessToken: tokenPair.accessToken,
       refreshToken: tokenPair.refreshToken,
     };
   }
 
-  public static toUserDataDTO(
-    user: UserEntity,
-    deviceId: string,
-  ): IUserData {
+  public static toUserDataDTO(user: UserEntity, deviceId: string): IUserData {
     return {
       userId: user.id,
       email: user.email,

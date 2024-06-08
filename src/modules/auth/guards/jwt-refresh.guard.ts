@@ -8,10 +8,8 @@ import { Reflector } from '@nestjs/core';
 
 import { RefreshTokenRepository } from '../../repository/services/refresh-token.repository';
 import { UserRepository } from '../../repository/services/user.repository';
-import { SKIP_AUTH } from '../constants/constants';
 import { TokenType } from '../enums/token-type.enum';
 import { AuthMapper } from '../services/auth.mapper';
-import { AuthCacheService } from '../services/auth-cache.service';
 import { TokenService } from '../services/token.service';
 
 @Injectable()
