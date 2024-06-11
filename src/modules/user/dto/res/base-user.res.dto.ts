@@ -20,7 +20,7 @@ export class BaseUserResDto {
   public readonly email: string;
 
   @ApiProperty({
-    example: 'Doctor....',
+    example: 'string',
     description: 'Other info about the user',
   })
   public readonly bio?: string;

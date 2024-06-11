@@ -53,7 +53,7 @@ export class BaseUserReqDto {
   @IsOptional()
   @MaxLength(255)
   @ApiProperty({
-    example: 'Doctor....',
+    example: 'string',
     description: 'Other info about the user',
     required: false,
   })

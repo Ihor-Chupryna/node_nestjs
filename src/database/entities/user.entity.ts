@@ -31,9 +31,6 @@ export class UserEntity extends BaseModel {
   @OneToMany(() => ArticleEntity, (entity) => entity.user)
   articles?: ArticleEntity[];
 
-  @OneToMany(() => CommentEntity, (entity) => entity.user)
-  comments?: ArticleEntity[];
-
   @OneToMany(() => LikeEntity, (entity) => entity.user)
   likes?: LikeEntity[];
 
@@ -42,4 +39,7 @@ export class UserEntity extends BaseModel {
 
   @OneToMany(() => FollowEntity, (entity) => entity.following)
   followings?: FollowEntity[];
+
+  @OneToMany(() => CommentEntity, (entity) => entity.article)
+  comments?: CommentEntity[];
 }
